@@ -93,6 +93,12 @@ static inline BOOL DejalContainsSomething(id object)
         (object != nil);
 }
 
+// Returns "yes" if the condition is true, otherwise "no". Useful for debug descriptions.
+static inline NSString *DejalYesNo(BOOL condition)
+{
+    return condition ? @"yes" : @"no";
+}
+
 // Returns YES if this application is an agent, i.e. a menu-less background helper app:
 static inline BOOL DejalIsAgent()
 {
