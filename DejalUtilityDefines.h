@@ -62,7 +62,7 @@
 #define DejalWeakSelf __weak __typeof(self)
 
 // Seeds the random values.  Call this before calling DejalRandomRange for the first time (okay to call again, too):
-static inline void DejalRandomSeed()
+static inline void DejalRandomSeed(void)
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:(NSCalendarUnitDay | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
     NSUInteger randomValue = ([components day] * [components minute]) / ([components second] + 5);
@@ -100,7 +100,7 @@ static inline NSString *DejalYesNo(BOOL condition)
 }
 
 // Returns YES if this application is an agent, i.e. a menu-less background helper app:
-static inline BOOL DejalIsAgent()
+static inline BOOL DejalIsAgent(void)
 {
     return ([[[NSBundle mainBundle] infoDictionary][@"NSUIElement"] boolValue]);
 }
